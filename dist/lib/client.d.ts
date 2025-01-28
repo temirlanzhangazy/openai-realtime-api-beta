@@ -5,6 +5,8 @@
 /**
  * @typedef {Object} AudioTranscriptionType
  * @property {"whisper-1"} model
+ * @property {string} language
+ * @property {string} prompt
  */
 /**
  * @typedef {Object} TurnDetectionServerVadType
@@ -314,6 +316,8 @@ export class RealtimeClient extends RealtimeEventHandler {
 export type AudioFormatType = "pcm16" | "g711_ulaw" | "g711_alaw";
 export type AudioTranscriptionType = {
     model: "whisper-1";
+    language: string;
+    prompt: string;
 };
 export type TurnDetectionServerVadType = {
     type: "server_vad";
@@ -336,8 +340,7 @@ export type SessionResourceType = {
     model?: string;
     modalities?: string[];
     instructions?: string;
-    voice?: "alloy"|"ash"|"ballad"|"coral"|"echo"|"sage"|"shimmer"|"verse";
-
+    voice?: "alloy" | "ash" | "ballad" | "coral" | "echo" | "sage" | "shimmer" | "verse";
     input_audio_format?: AudioFormatType;
     output_audio_format?: AudioFormatType;
     input_audio_transcription?: AudioTranscriptionType | null;
